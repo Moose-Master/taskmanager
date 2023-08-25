@@ -16,10 +16,4 @@ public class Task {
         DueDate = date;
         this.Urgency = urgency;
     }
-    public enum Urgency {
-        None,
-        Mild,
-        Moderate,
-        Critical
-    }
 }
