@@ -9,14 +9,18 @@ import java.io.FileWriter;
 Saves and loads lists of tasks
  */
 public class SaveManager {
+    public static final String saveFile = "tasks.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    public static void Save(TaskList list, String file) {
+    public static void Save(TaskList tasks, String file) {
         try(FileWriter fw = new FileWriter(file)) {
-            gson.toJson(list, TaskList.class, fw);
+            gson.toJson(tasks, TaskList.class, fw);
         } catch(Exception e) {
             System.out.println("Error in formatting json: " + e);
             System.exit(0);
         }
+    }
+    public static void Save(TaskList tasks) {
+        Save(tasks, saveFile);
     }
     public static TaskList Load(String file) {
         try(FileReader fr = new FileReader(file)) {
@@ -26,5 +30,8 @@ public class SaveManager {
             System.exit(0);
             return null;
         }
+    }
+    public static TaskList Load() {
+        return Load(saveFile);
     }
 }
