@@ -1,0 +1,20 @@
+Description:
+Create a simple task manager application that allows users to add, view, update, and delete tasks. This project will help you and your friend practice Java programming while building a useful tool for keeping track of tasks and to-dos.
+Features:
+    Task List: Implement a task list where users can add, view, update, and delete tasks. Each task can have a title, description, due date, and status (e.g., "in progress," "completed").
+    User Interface: Design a text-based user interface where users can interact with the application using command-line prompts and menus.
+    Task Sorting: Allow users to sort tasks by due date, status, or other relevant criteria.
+    Data Storage: Store tasks in memory or use simple file I/O to save tasks between sessions.
+    Search and Filtering: Implement a feature to search for tasks based on keywords or filter tasks by status.
+    Reminders: If you're up for a challenge, add a reminder feature that alerts users about approaching due dates.
+Benefits:
+    Practical Use: You'll build a tool that you and your friend can use to manage tasks and stay organized.
+    Java Skills: Practice working with data structures, user input, and file I/O.
+    Logic Building: Designing the logic for adding, updating, and filtering tasks will enhance your programming logic.
+    User Interaction: Developing a user interface, even a simple one, helps you understand how users interact with software.
+    Project Collaboration: Working together on a project like this provides great collaboration experience.
+Project Extensions:
+    Add task priorities or labels.
+    Implement different views (upcoming tasks, completed tasks, etc.).
+    Integrate external libraries for more advanced features.
+    Develop a graphical user interface (GUI) using Java's Swing or JavaFX libraries.
