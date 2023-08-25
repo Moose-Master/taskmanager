@@ -8,9 +8,9 @@ public class TerminalInterace {
         while (true) {
             String input = Main.input.nextLine();
             if (input.equalsIgnoreCase("read")) {
-                System.out.println("List of tasks goes here");
+                SaveManager.Save(Main.input.nextLine());
             } else if (input.equalsIgnoreCase("write") || input.equalsIgnoreCase("add")) {
-                System.out.println("A way to add stuff goes here");
+                SaveManager.Load();
             } else if (input.equalsIgnoreCase("stop") || input.equalsIgnoreCase("end")) {
                 break;
             } else {
