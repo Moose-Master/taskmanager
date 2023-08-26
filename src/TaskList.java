@@ -1,3 +1,5 @@
+import com.google.gson.annotations.Expose;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,11 +7,13 @@ import java.util.List;
 The list of tasks and extra information, such as the task set's name and user
  */
 public class TaskList {
+    @Expose
     public String Name;
+    @Expose
     public List<Task> Tasks;
-    public GuiManager Gui;
-    public String FileName;
-    public NetworkSync NetworkSynchronizer;
+    public transient GuiManager Gui;
+    public transient String FileName;
+    public transient NetworkSync NetworkSynchronizer;
 
     public TaskList() {
         Name = "Default";
