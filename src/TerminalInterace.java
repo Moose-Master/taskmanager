@@ -18,6 +18,8 @@ public class TerminalInterace {
                 save_text();
             } else if (input.equalsIgnoreCase("stop") || input.equalsIgnoreCase("end") || input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("quit")) {
                 System.exit(0);
+            } else if(input.equalsIgnoreCase("remove") || input.equalsIgnoreCase("delete")) {
+                remove_task();
             } else {
                 System.out.println("Cmd not recognized, Please try again");
             }
@@ -25,9 +27,22 @@ public class TerminalInterace {
         }
     }
 
+    public static void remove_task() {
+        System.out.println("Name? ");
+        int index;
+        while((index = t_list.GetTask(Main.input.nextLine())) == -1) {
+            System.out.println("Task doesn't exist!");
+        }
+        t_list.Tasks.remove(index);
+        t_list.Update();
+    }
+
     public static void save_text(){
         System.out.println("Name? ");
-        String t_name = Main.input.nextLine();
+        String t_name;
+        while(t_list.GetTask(t_name = Main.input.nextLine()) != -1) {
+            System.out.println("Task already exists");
+        }
         System.out.println(("Desrption? "));
         String t_descrpt = Main.input.nextLine();
         System.out.println("On a scale from 0-3 how uragent is it?");
@@ -44,6 +59,7 @@ public class TerminalInterace {
         else
             t_urgancy = "None";
         t_list.Add(new Task(t_name,t_descrpt,new Date(),Urgency.valueOf(t_urgancy)));
+        t_list.Update();
     }
 
 }

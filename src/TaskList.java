@@ -31,4 +31,12 @@ public class TaskList {
         if(NetworkSynchronizer != null) NetworkSynchronizer.Sync(this);
         if(Gui != null) Gui.Update();
     }
+    public int GetTask(String name) {
+        for(int i = 0;i < Tasks.size();i++) {
+            if (Tasks.get(i).Name.equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
