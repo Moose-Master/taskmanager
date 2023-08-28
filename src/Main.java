@@ -9,5 +9,5 @@ public class Main {
         TerminalInterace.main_loop();
 
 
-        }
     }
+}

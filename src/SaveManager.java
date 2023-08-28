@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 /*
 Saves and loads lists of tasks
@@ -24,11 +25,20 @@ public class SaveManager {
     }
     public static TaskList Load(String file) {
         try(FileReader fr = new FileReader(file)) {
-            return gson.fromJson(fr, TaskList.class);
+            TaskList t = gson.fromJson(fr, TaskList.class);
+            if(t == null) {
+                t = new TaskList();
+                Save(t);
+            } else if(t.Tasks == null) {
+                t.Tasks = new ArrayList<>();
+                Save(t);
+            }
+            return t;
         } catch(Exception e) {
-            System.out.println("Error in reading json: " + e);
-            System.exit(0);
-            return null;
+            System.out.println("Error in reading json: " + e + "\nCreating new tasks file");
+            TaskList t = new TaskList();
+            Save(t);
+            return t;
         }
     }
     public static TaskList Load() {
